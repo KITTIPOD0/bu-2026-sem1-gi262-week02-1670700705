@@ -36,7 +36,7 @@ namespace Workshop.Student
                 for (int x = 0; x < columns; x++)
                 {
                     int r = UnityEngine.Random.Range(0, floorTiles.Length);//ÊØèÁµÒÁfloorTitles
-                    GameObject title = Instantiate(wallTiles[r], new Vector2(x, y), Quaternion.identity);
+                    GameObject title = Instantiate(floorTiles[r], new Vector2(x, y), Quaternion.identity);
                     title.name = "Floor" + x + "_" +y ;
                 }
             }
@@ -61,7 +61,7 @@ namespace Workshop.Student
                 int x_food = UnityEngine.Random.Range(0, columns);
                 int y_food = UnityEngine.Random.Range(0, rows);
                 int r = UnityEngine.Random.Range(0,floorTiles.Length);
-                Instantiate(foodTiles[r], new Vector2(x_food, y_food), Quaternion.identity);
+                Instantiate(foodTiles[0], new Vector2(x_food, y_food), Quaternion.identity);
             }
             // 6. generate item along with the saveItemMap
             for(int y = 0;y< saveItemMap.GetLength(0);y++)
