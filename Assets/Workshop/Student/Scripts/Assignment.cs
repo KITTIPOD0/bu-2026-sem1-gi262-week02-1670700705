@@ -46,7 +46,11 @@ namespace Assignment
         public GameObject[] as01_items;
         public void AS01_RandomItemDrop()
         {
-            throw new NotImplementedException();
+         int itemDrop01 = UnityEngine.Random.Range(0, as01_items.Length);
+         int x = UnityEngine.Random.Range(0,3);
+         int y = UnityEngine.Random.Range(0,3);
+         GameObject title = Instantiate(as01_items[itemDrop01], new Vector2(x, y), Quaternion.identity);
+         Debug.Log(title.name);
         }
 
         /*
