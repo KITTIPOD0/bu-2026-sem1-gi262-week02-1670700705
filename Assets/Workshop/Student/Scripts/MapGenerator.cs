@@ -11,6 +11,9 @@ namespace Workshop.Student
         public GameObject[] floorTiles;
         public GameObject[] wallTiles;
         public GameObject[] foodTiles;
+        public GameObject[] player;
+        public GameObject[] exit;
+        public GameObject[] obstacles;
 
         public string[,] saveItemMap = new string[3, 3] {
             { " ", "Soda", " "},
@@ -26,9 +29,17 @@ namespace Workshop.Student
         public void Start()
         {
             // 1. random player at the position <0, 0> map
-
+            int a =UnityEngine.Random.Range(0, player.Length);
+          Instantiate(player[a], new Vector2(0,0), Quaternion.identity);
             // 2. create obstacles
+            int n_obstacles = UnityEngine.Random.Range(0, obstacles.Length);
+            int Y_obstacles_final = rows / 2;
+            int X_obstacles = columns/2;
+            for (int Y_obstacles = 0; Y_obstacles < Y_obstacles_final; Y_obstacles++)
+            {
+               Instantiate(obstacles[n_obstacles], new Vector2(X_obstacles, Y_obstacles), Quaternion.identity);
 
+            }
             // 3. create floor
             //¶éÒcolumsà»ç¹10¨ÐÃÑ¹0-9
             for (int y = 0; y < rows; y++) 
@@ -83,6 +94,9 @@ namespace Workshop.Student
                 }
             }
             // 7. place exit
+            int x_Exit = columns - 1;
+            int y_Exit = columns - 1;
+            Instantiate(exit[0], new Vector2(x_Exit, y_Exit), Quaternion.identity);
 
         }
     }
